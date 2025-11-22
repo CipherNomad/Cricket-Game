@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bat Ball Wicket Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <!-- 🔥 SPLASH SCREEN -->
+    <div id="splash">
+      <img src="images/stadium.png" class="stadium-bg" />
+      <h1 class="splash-title">🏏 Bat Ball Wicket 🏏</h1>
+      <div class="loader"></div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container" id="main">
+      <h1 class="title">⚡ Bat Ball Wicket Game ⚡</h1>
+
+      <div class="btn-section">
+        <!-- Bat -->
+        <button class="game-btn" onclick="playGame('Bat')">
+          <img src="images/bat.png" class="choice-img" />
+          <span>Bat</span>
+        </button>
+
+        <!-- Ball -->
+        <button class="game-btn" onclick="playGame('Ball')">
+          <img src="images/ball.png" class="choice-img" />
+          <span>Ball</span>
+        </button>
+
+        <!-- Stumps -->
+        <button class="game-btn" onclick="playGame('Stumps')">
+          <img src="images/stump.png" class="choice-img" />
+          <span>Stumps</span>
+        </button>
+      </div>
+
+      <div class="result-card">
+        <h3 id="user-move"></h3>
+        <h3 id="computer-move"></h3>
+        <h3 id="result"></h3>
+        <h3 id="score"></h3>
+      </div>
+
+      <button class="reset-btn"
+        onclick="localStorage.clear(); resetScore(null); playClick();">
+        Reset Score
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
