@@ -1,75 +1,97 @@
-
-```
-<!-- 🎉 PROJECT BANNER -->
 <p align="center">
   <img src="images/banner.png" alt="Cricket Game Banner" width="100%" />
 </p>
 
-# 🏏 Bat Ball Wicket – Cricket Game  
-A fun and interactive cricket-themed mini-game built using **HTML, CSS, and JavaScript**.
+<h1 align="center">🏏 Bat Ball Wicket – Cricket Game</h1>
 
-Inspired by the classic hand-cricket game — choose between **Bat**, **Ball**, or **Stumps** and compete against the computer!
+<p align="center">
+  A modern, fast, and interactive cricket mini-game built using 
+  <b>HTML, CSS, and JavaScript</b>.
+  Play against the computer using <b>Bat</b>, <b>Ball</b>, or <b>Stumps</b>!
+</p>
 
----
+<p align="center">
+  <a href="https://ciphernomad.github.io/Cricket-Game/"><b>🎮 Live Demo</b></a> •
+  <a href="https://github.com/CipherNomad/Cricket-Game"><b>📦 Source Code</b></a>
+</p>
 
-## 🚀 Live Demo  
-👉 **Play the Game Here:**  
-### 🔗 https://ciphernomad.github.io/Cricket-Game/
-
----
-
-<!-- ## 🎬 Demo GIF  
-Add a short gameplay GIF in `images/demo.gif` and it will auto-load here:
-
-![Gameplay Demo](images/demo.gif) -->
+<br>
 
 ---
 
-## 🖼️ Screenshot  
-Here’s how the game looks:
+## 📌 Tech Stack & Badges
 
-![Game Screenshot](images/demo.png)
+<p align="left">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/GitHub%20Pages-121013?style=for-the-badge&logo=github&logoColor=white" />
+</p>
+
+---
+
+# 📑 Table of Contents
+
+- [📸 Screenshot](#-screenshot)
+- [✨ Features](#-features)
+- [🚀 Live Demo](#-live-demo)
+- [🛠️ Technologies Used](#️-technologies-used)
+- [📂 Project Structure](#-project-structure)
+- [🔧 Run Locally](#-run-locally)
+- [🌍 Deployment](#-deployment)
+- [🤝 Contributing](#-contributing)
+- [⭐ Support](#-support)
+
+---
+
+## 📸 Screenshot
+
+<p align="center">
+  <img src="images/demo.png" alt="Cricket Game Screenshot" width="80%">
+</p>
 
 ---
 
 ## ✨ Features
 
-### 🎨 **Beautiful UI**
-- Glass-effect modern layout  
+### 🎨 UI / UX
+- Clean, modern glass-effect UI  
 - Neon hover buttons  
-- Smooth animations  
 - Animated cricket splash screen  
+- Fully responsive layout  
 
-### 🧠 **Game Logic**
-- Computer generates random selections  
-- Real-time result rendering  
+### 🧠 Gameplay
+- Computer generates random moves  
+- Real-time game result display  
 - Scoreboard updates instantly  
 
-### 💾 **Persistent Score**
-- Score auto-saves using `localStorage`  
-- Reset button included  
+### 💾 Storage
+- Scores are saved in `localStorage`  
+- Reset button clears the game  
 
-### 📱 **Responsive**
-- Works on mobile, tablet, and desktop  
+---
+
+## 🚀 Live Demo  
+👉 **Play the game instantly:**  
+### https://ciphernomad.github.io/Cricket-Game/
 
 ---
 
 ## 🛠️ Technologies Used
 
-| Technology | Purpose |
-|-----------|---------|
-| **HTML5** | Base structure |
-| **CSS3** | UI styling + animations |
-| **JavaScript (ES6)** | Game logic, DOM handling |
-| **LocalStorage** | Score persistence |
-| **GitHub Pages** | Deployment |
+| Technology      | Purpose                          |
+|-----------------|----------------------------------|
+| HTML5           | Page structure                   |
+| CSS3            | UI design + animations           |
+| JavaScript ES6  | Logic + DOM manipulation         |
+| LocalStorage    | Saving score                     |
+| GitHub Pages    | Deployment                       |
 
 ---
 
 ## 📂 Project Structure
 
-```
-
+```txt
 Cricket-Game/
 │── images/
 │   ├── bat.png
@@ -77,65 +99,48 @@ Cricket-Game/
 │   ├── stump.png
 │   ├── stadium.png
 │   ├── demo.png
-│       
-|
+│   └── banner.png
+│
 │── index.html
 │── style.css
 │── script.js
 │── README.md
+🔧 Run Locally
+1️⃣ Clone the repository
 
-````
+bash
+Copy code
+git clone https://github.com/CipherNomad/Cricket-Game.git
+2️⃣ Enter the project directory
 
----
+bash
+Copy code
+cd Cricket-Game
+3️⃣ Open the game
 
-## 🔧 How to Run Locally
+diff
+Copy code
+index.html
+✔ Works on any browser
+✔ No dependencies or installs needed
 
-1. Clone repository:
-   ```bash
-   git clone https://github.com/CipherNomad/Cricket-Game.git
-````
+🌍 Deployment
+Live URL:
+https://ciphernomad.github.io/Cricket-Game/
 
-2. Navigate into folder:
+To update the live version:
 
-   ```bash
-   cd Cricket-Game
-   ```
-
-3. Open:
-
-   ```
-   index.html
-   ```
-
-   in any browser.
-
-That's it — no installations needed!
-
----
-
-## 🌐 Re-Deploy Instructions (GitHub Pages)
-
-If you update the project, just run:
-
-```bash
+bash
+Copy code
 git add .
 git commit -m "update"
 git push
-```
+🤝 Contributing
+Contributions are welcome!
+Feel free to open an issue or submit a pull request.
 
-Your live game auto-updates at:
-🔗 **[https://ciphernomad.github.io/Cricket-Game/](https://ciphernomad.github.io/Cricket-Game/)**
+⭐ Support
+If you like this project, please ⭐ star the repository.
+It helps the project grow and motivates further development!
 
----
-
-## 🤝 Contributing
-
-Feel free to fork the project and submit PRs!
-
----
-
-## ⭐ Support
-
-If you like this project, please ⭐ star the repo — it motivates future improvements!
-
-
+<br> <p align="center"> Made with ❤️ by <b>Rahul Raj Singh</b> </p> ```
