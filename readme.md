@@ -105,6 +105,7 @@ Cricket-Game/
 │── style.css
 │── script.js
 │── README.md
+```
 🔧 Run Locally
 1️⃣ Clone the repository
 
