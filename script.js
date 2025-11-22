@@ -4,20 +4,20 @@ const sounds = {
   bat: new Audio("sounds/bat.mp3"),
   ball: new Audio("sounds/ball.mp3"),
   stump: new Audio("sounds/stumps.mp3"),
-  win: new Audio("sounds/win.mp3"),
-  lose: new Audio("sounds/lose.mp3"),
+  win: new Audio("sounds/win.mp3"),   // plays when YOU win
+  lose: new Audio("sounds/lose.mp3"), // plays when YOU lose
   tie: new Audio("sounds/tie.mp3"),
 };
 
-/* Limit all sounds to 2 seconds max */
-Object.values(sounds).forEach(sound => {
-  sound.addEventListener("play", () => {
-    setTimeout(() => {
-      sound.pause();
-      sound.currentTime = 0;
-    }, 2000); // 2 seconds
-  });
-});
+/* Limit result sounds to max 4 seconds */
+function limitSound(sound, duration = 4000) {
+  sound.currentTime = 0;
+  sound.play();
+  setTimeout(() => {
+    sound.pause();
+    sound.currentTime = 0;
+  }, duration);
+}
 
 /* Play click sound */
 function playClick() {
@@ -47,24 +47,29 @@ resetScore(scoreStr);
 function playGame(move) {
   playClick();
 
-  // Play button sound immediately
-  if (move === "Bat") sounds.bat.play();
-  if (move === "Ball") sounds.ball.play();
-  if (move === "Stumps") sounds.stump.play();
+  // play button sound immediately
+  if (move === "Bat") limitSound(sounds.bat, 2000);
+  if (move === "Ball") limitSound(sounds.ball, 2000);
+  if (move === "Stumps") limitSound(sounds.stump, 2000);
 
   let comp = systemChoice();
   let msg = getResult(move, comp);
 
-  // Delay result sound by 300ms to create gap after button sound
-  setTimeout(() => {
-    if (msg.includes("Won")) sounds.win.play();
-    else if (msg.includes("System")) sounds.lose.play();
-    else sounds.tie.play();
-  }, 300);
-
   printResult(move, comp, msg);
+
+  // small delay for result sound
+  setTimeout(() => {
+    if (msg.includes("Won")) {
+      limitSound(sounds.win, 4000);   // YOU won
+    } else if (msg.includes("Lost")) {
+      limitSound(sounds.lose, 4000);  // YOU lost
+    } else {
+      limitSound(sounds.tie, 3500);   // tie
+    }
+  }, 300);
 }
 
+/* RESET SCORE */
 function resetScore(scoreStr) {
   score = scoreStr
     ? JSON.parse(scoreStr)
@@ -77,6 +82,7 @@ function resetScore(scoreStr) {
   printResult();
 }
 
+/* SYSTEM RANDOM CHOICE */
 function systemChoice() {
   let random = Math.random() * 3;
   if (random < 1) return "Bat";
@@ -84,12 +90,14 @@ function systemChoice() {
   else return "Stumps";
 }
 
+/* FIXED RESULT LOGIC */
 function getResult(userMove, computerMove) {
   if (userMove === computerMove) {
     score.tie++;
     return "Match Tied 😐";
   }
 
+  // Game rules
   const rules = {
     Bat: "Ball",
     Ball: "Stumps",
@@ -101,10 +109,11 @@ function getResult(userMove, computerMove) {
     return "You Won 🏆";
   } else {
     score.lost++;
-    return "System Won 😭";
+    return "You Lost 😭";  // 🔥 FIXED TEXT
   }
 }
 
+/* PRINT RESULT */
 function printResult(userMove, compMove, resultMsg) {
   localStorage.setItem("score", JSON.stringify(score));
 
