@@ -9,6 +9,16 @@ const sounds = {
   tie: new Audio("sounds/tie.mp3"),
 };
 
+/* Limit all sounds to 2 seconds max */
+Object.values(sounds).forEach(sound => {
+  sound.addEventListener("play", () => {
+    setTimeout(() => {
+      sound.pause();
+      sound.currentTime = 0;
+    }, 2000); // 2 seconds
+  });
+});
+
 /* Play click sound */
 function playClick() {
   sounds.click.currentTime = 0;
@@ -37,6 +47,7 @@ resetScore(scoreStr);
 function playGame(move) {
   playClick();
 
+  // Play button sound immediately
   if (move === "Bat") sounds.bat.play();
   if (move === "Ball") sounds.ball.play();
   if (move === "Stumps") sounds.stump.play();
@@ -44,9 +55,12 @@ function playGame(move) {
   let comp = systemChoice();
   let msg = getResult(move, comp);
 
-  if (msg.includes("Won")) sounds.win.play();
-  else if (msg.includes("System")) sounds.lose.play();
-  else sounds.tie.play();
+  // Delay result sound by 300ms to create gap after button sound
+  setTimeout(() => {
+    if (msg.includes("Won")) sounds.win.play();
+    else if (msg.includes("System")) sounds.lose.play();
+    else sounds.tie.play();
+  }, 300);
 
   printResult(move, comp, msg);
 }
